@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Wrapper } from './Wrapper';
 
-export const template = () => <Wrapper>template</Wrapper>;
+interface Props {}
+
+export const template: FunctionComponent<Props> = ({}) => <Wrapper>template</Wrapper>;
