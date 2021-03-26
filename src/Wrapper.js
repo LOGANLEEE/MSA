@@ -9,11 +9,12 @@ export const Wrapper = styled.div`
 	flex-direction: row;
 
 	.app-block1 {
-		cursor: pointer;
 		width: 10%;
+		cursor: pointer;
 		/* padding: 1% 0.5% 1% 1% ; */
 		padding: 1%;
 		font-size: 5vw;
+		color: white;
 		font-weight: bold;
 		background-color: #133f4c59;
 	}
@@ -27,10 +28,10 @@ export const Wrapper = styled.div`
 			height: 6%;
 		}
 		.body {
-			height: 85%;
+			height: 90%;
 		}
 		.footer {
-			height: 5%;
+			height: 2%;
 			background-color: #131f4c59;
 		}
 	}
