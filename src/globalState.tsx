@@ -12,6 +12,7 @@ export const user_info_state = atom({
 		user_name: '',
 		login: false,
 		level: 5,
+		locked: true,
 	},
 });
 
