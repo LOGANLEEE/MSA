@@ -1,4 +1,4 @@
-import React, FunctionComponent, HTMLAttributes } from 'react';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
 import { Wrapper } from './Wrapper';
 
 interface Props {
