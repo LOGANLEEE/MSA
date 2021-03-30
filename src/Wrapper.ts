@@ -1,30 +1,30 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(animated.div)`
 	min-height: 100vh;
 	min-width: 100vw;
+	overflow-y: scroll;
 
 	display: flex;
 	flex-direction: row;
-
-	background-color: ${({ isDark }) => (isDark ? `#132f4c59` : `#6b636a`)};
+	background-color: ${({ theme: { is_dark, dark_back_ground, white_back_ground } }) =>
+		is_dark ? dark_back_ground : white_back_ground};
 
 	.app-block1 {
 		width: 10%;
 		cursor: pointer;
 		padding: 1%;
-		/* color: ${({ isDark }) => (isDark ? `white` : `black`)}; */
 		font-size: 5vw;
 		font-family: fantasy;
 		font-weight: bold;
-		/* background-color: ${({ isDark }) => (isDark ? `#132f4c59` : `#ac65b1`)}; */
+		overflow-x: hidden;
 	}
 
 	.app-block2 {
 		width: 90%;
 
 		.header {
-			/* background-color: ${({ isDark }) => (isDark ? `#132f4c59` : `#e289c7`)}; */
 			padding: 1% 0% 1% 0%;
 			height: 6%;
 		}
