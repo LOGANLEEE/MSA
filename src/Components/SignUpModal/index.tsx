@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { ModalBodyWrapper, StyledModal, Wrapper, StyledButton } from './Wrapper';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { CountryType, countries } from 'country';
-import { axios } from 'utils/globalFunc';
+import { axios } from 'globalFunc';
 
 interface Props {
 	should_open: boolean;
