@@ -1,4 +1,5 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+import axios from 'axios';
 
 export const theme_info_state = atom({
 	key: 'theme_info_state',
@@ -8,11 +9,15 @@ export const theme_info_state = atom({
 export const user_info_state = atom({
 	key: 'user_info',
 	default: {
-		user_id: '',
-		user_name: '',
-		login: false,
+		email: '',
+		first_name: '',
+		id: '',
+		is_login: false,
+		last_name: '',
 		level: 5,
-		locked: true,
+		locked: '',
+		mobile: '',
+		register_date: '',
 	},
 });
 
