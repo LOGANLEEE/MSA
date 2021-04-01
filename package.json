@@ -10,6 +10,7 @@
 		"@testing-library/user-event": "^12.1.10",
 		"axios": "^0.21.1",
 		"dotenv": "^8.2.0",
+		"prisma": "^2.20.1",
 		"react": "^17.0.2",
 		"react-app-polyfill": "^2.0.0",
 		"react-dark-mode-toggle": "^0.2.0",
@@ -28,6 +29,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"t": "react-scripts test",
+		"p": "yarn prisma introspect && yarn prisma generate",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6006 -s public",
 		"st": "start-storybook -p 6006 -s public",
@@ -52,6 +54,7 @@
 		]
 	},
 	"devDependencies": {
+		"@prisma/client": "^2.20.1",
 		"@storybook/addon-actions": "^6.1.21",
 		"@storybook/addon-essentials": "^6.1.21",
 		"@storybook/addon-links": "^6.1.21",
