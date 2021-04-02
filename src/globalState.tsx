@@ -1,5 +1,4 @@
 import { atom, selector } from 'recoil';
-import axios from 'axios';
 
 export const theme_info_state = atom({
 	key: 'theme_info_state',
@@ -21,9 +20,11 @@ export const user_info_state = atom({
 	},
 });
 
-export const test = atom({
+export const alert_state = atom({
 	key: 'test',
 	default: {
-		login: false,
+		message: '',
+		severity: 'error',
+		visible: false,
 	},
 });
