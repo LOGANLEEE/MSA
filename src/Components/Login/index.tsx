@@ -3,29 +3,24 @@ import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { user_info_state } from 'globalState';
 import airplanemode_active from 'asset/airplanemode_active-white-18dp.svg';
 import airplanemode_inactive from 'asset/airplanemode_inactive-white-18dp.svg';
-import { Wrapper, StyledButton } from './Wrapper';
+import { Wrapper } from './Wrapper';
+import { StyledButton } from 'Components/StyledButton';
 import { LoginModal } from 'Components/LoginModal';
-import { axios } from 'globalFunc';
-import FacebookLogin from 'react-facebook-login';
 
 interface Props {
 	className?: string;
 }
 
 export const Login: FunctionComponent<Props> = (props) => {
-	const [should_open, set_should_open] = useState(false);
+	const [should_open, set_should_open] = useState(true);
 	const { is_login } = useRecoilValue(user_info_state);
 
 	// ! logout function
 	const reset_user_info = useResetRecoilState(user_info_state);
 
-	const responseFacebook = (response: any) => {
-		console.log(response);
-	};
-
 	return (
 		<Wrapper {...props}>
-			{/* <StyledButton onClick={() => (is_login ? reset_user_info() : set_should_open(true))}>
+			<StyledButton className='' onClick={() => (is_login ? reset_user_info() : set_should_open(true))}>
 				{is_login ? (
 					<>
 						LogOut
@@ -34,21 +29,11 @@ export const Login: FunctionComponent<Props> = (props) => {
 				) : (
 					<>
 						Login
-						<img src={airplanemode_active} alt='log_out' /> 
+						<img src={airplanemode_active} alt='log_out' />
 					</>
 				)}
-			</StyledButton> */}
-
-			<StyledButton>
-				<FacebookLogin
-					appId='250642580118250'
-					autoLoad={true}
-					fields='name,email,picture'
-					callback={responseFacebook}
-					cssClass='my-facebook-button-class'
-					icon='fa-facebook'
-				/>
 			</StyledButton>
+
 			{is_login ? '' : <LoginModal should_open={should_open} set_should_open={set_should_open} />}
 		</Wrapper>
 	);
