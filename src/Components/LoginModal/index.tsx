@@ -2,22 +2,21 @@ import React, { FunctionComponent } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import { SignUpModal } from 'Components/SignUpModal';
-import { ModalBodyWrapper, StyledModal, Wrapper, StyledButton } from './Wrapper';
+import close_white from 'asset/close-white-18dp.svg';
+import { ModalBodyWrapper, StyledModal, Wrapper } from './Wrapper';
 import { useHooks } from './useHooks';
+import FacebookLogin from 'react-facebook-login';
+import { StyledButton } from 'Components/StyledButton';
 
 export interface Props {
 	should_open: boolean;
 	set_should_open: Function;
 }
 
-// export const LoginModal: FunctionComponent<Props> = ({ should_open, set_should_open }) => {
 export const LoginModal: FunctionComponent<Props> = ({ should_open, set_should_open }) => {
 	const {
-		password_err,
-		should_open_sign_modal,
-		id_err,
 		spring_info,
-		func: { doLogin, set_should_open_sign_modal },
+		func: { facebook_login, facebook_login_failure },
 	} = useHooks({ should_open, set_should_open });
 
 	return (
@@ -29,46 +28,22 @@ export const LoginModal: FunctionComponent<Props> = ({ should_open, set_should_o
 				aria-labelledby='simple-modal-title'
 				aria-describedby='simple-modal-description'>
 				<ModalBodyWrapper style={spring_info}>
-					<form onSubmit={doLogin}>
-						<TextField label='ID' name='id' type='text' error={id_err} required />
-						<br />
-						<TextField
-							label='Password (6 character or more)'
-							name='password'
-							type='password'
-							// helperText={password_err ? 'more than 6 digit' : null}
-							required
-							error={password_err}
-						/>
-						<br />
-						<StyledButton type='submit'>Login</StyledButton>
-						<br />
-						or
-						<br />
-						<br />
-						<StyledButton onClick={() => set_should_open_sign_modal(true)}>Sign UP</StyledButton>
-					</form>
-					<br />
-					//TODO imple function
-					<span className='find_password'>Find Password</span>
-					<br />
-					<br />
-					<br />
-					<br />
+					<FacebookLogin
+						appId={process.env.REACT_APP_FACEBOOK_APP_ID as string}
+						autoLoad={true}
+						fields='name,email,picture'
+						callback={facebook_login}
+						onFailure={facebook_login_failure}
+					/>
+
 					<StyledButton
 						onClick={() => {
 							set_should_open(false);
-						}}>
-						{/* <img src={close_white} alt='modal close' /> */}
-						CLOSE
-					</StyledButton>
+						}}
+						text='CLOSE'
+					/>
 				</ModalBodyWrapper>
 			</StyledModal>
-			{should_open_sign_modal ? (
-				<SignUpModal set_should_open={set_should_open_sign_modal} should_open={should_open_sign_modal} />
-			) : (
-				''
-			)}
 		</Wrapper>
 	);
 };
