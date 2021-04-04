@@ -2,39 +2,46 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 export const Wrapper = styled(animated.div)`
-	min-height: 100vh;
-	min-width: 100vw;
+	min-height: 100vh !important;
+	min-width: 100vw !important;
 	overflow-y: scroll;
 
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	background-color: ${({ theme: { is_dark, dark_back_ground, white_back_ground } }) =>
 		is_dark ? dark_back_ground : white_back_ground};
+	columns: ${({ theme: { is_dark, dark_back_ground, white_back_ground } }) =>
+		is_dark ? white_back_ground : dark_back_ground};
 
-	.app-block1 {
-		width: 10%;
-		cursor: pointer;
-		padding: 1%;
-		font-size: 5vw;
-		font-family: fantasy;
-		font-weight: bold;
-		overflow-x: hidden;
+	.header {
+		width: 100%;
+		height: 10%;
+		display: flex;
+		flex-direction: row;
 	}
 
-	.app-block2 {
-		width: 90%;
+	.body {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
 
-		.header {
-			padding: 1% 0% 1% 0%;
-			height: 6%;
+		.left {
+			width: 8%;
+			height: 100%;
 		}
-		.body {
-			height: 90%;
+		.center {
+			width: 84%;
+			height: 100%;
 		}
-		.footer {
-			height: 2%;
-			/* background-color: #131f4c59; */
+		.right {
+			width: 8%;
+			height: 100%;
 		}
+	}
+	.footer {
+		width: 100%;
+		height: 10%;
 	}
 
 	/* @media only screen and (max-width: 600px) {
