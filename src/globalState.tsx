@@ -38,8 +38,13 @@ export const alert_state = atom({
 export const menu_state = atom({
 	key: 'manu',
 	default: {
-		selected: 'main',
+		selected: 'Main',
 	},
+});
+
+export const detail_info_state = atom({
+	key: 'detail_info',
+	default: { title: '', content: '' },
 });
 
 export const menus = ['Academy', 'Q&A', 'News', 'Community'];
