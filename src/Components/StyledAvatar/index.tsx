@@ -8,5 +8,5 @@ interface Props {
 }
 
 export const StyledAvatar: FunctionComponent<Props> = ({ className, alt, children, src }) => (
-	<Wrapper className='className' variant='circle' alt={alt} src={src} sizes='100%' />
+	<Wrapper className='className' variant='circular' alt={alt} src={src} sizes='100%' />
 );
