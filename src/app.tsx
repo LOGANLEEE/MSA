@@ -2,11 +2,13 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
-import { Header } from './Header';
-import { Body } from './Body';
-import { Footer } from './Footer';
-import { theme_info_state, alert_state } from 'globalState';
+import { Header } from './Containers/Header';
+import { Center } from './Containers/Center';
+import { Left } from './Containers/Left';
+import { Right } from './Containers/Right';
+import { Footer } from './Containers/Footer';
 import { useSpring } from 'react-spring';
+import { theme_info_state, alert_state } from 'globalState';
 
 import { Wrapper } from './Wrapper';
 import { StylesProvider } from '@material-ui/core/styles';
@@ -21,24 +23,17 @@ const App = () => {
 		<StylesProvider injectFirst>
 			<ThemeProvider theme={useRecoilValue(theme_info_state)}>
 				<Wrapper style={spring_info}>
-					<div className='app-block1' onClick={() => window.location.reload()}>
-						Like <br />
-						To <br />
-						Be <br />
-						Tea- <br />
-						cher
+					<div className='header'>
+						<Header />
 					</div>
 
-					<div className='app-block2'>
-						<div className='header'>
-							<Header />
-						</div>
-						<div className='body'>
-							<Body />
-						</div>
-						<div className='footer'>
-							<Footer />
-						</div>
+					<div className='body'>
+						<Left className='left' />
+						<Center className='center' />
+						<Right className='right' />
+					</div>
+					<div className='footer'>
+						<Footer />
 					</div>
 					{visible ? <AlertMessage /> : ''}
 				</Wrapper>
