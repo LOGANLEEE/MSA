@@ -1,10 +1,16 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Wrapper } from './Wrapper';
 
 interface Props {
-	// className: ?string;
+	className?: string;
+	menu: string;
 }
 
-export const Board: FunctionComponent<Props & HTMLAttributes<HTMLDivElement>> = ({ className }) => {
-	return <Wrapper className={className}>board</Wrapper>;
+export const Board: FunctionComponent<Props> = ({ className, children, menu }) => {
+	return (
+		<Wrapper className={className}>
+			<div>{menu}</div>
+			<div className='list'>{children}</div>
+		</Wrapper>
+	);
 };
